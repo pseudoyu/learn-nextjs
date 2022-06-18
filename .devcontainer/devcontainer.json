@@ -25,7 +25,8 @@
 				"WakaTime.vscode-wakatime",
 				"ritwickdey.LiveServer",
 				"dsznajder.es7-react-js-snippets",
-				"csstools.postcss"
+				"csstools.postcss",
+				"bradlc.vscode-tailwindcss"
 			]
 		}
 	},
