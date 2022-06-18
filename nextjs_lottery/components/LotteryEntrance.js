@@ -13,7 +13,11 @@ const LotteryEntrance = () => {
     const lotteryAddress = chainId in contractAddresses ? contractAddresses[chainId][0] : null
     const dispatch = useNotification()
 
-    const { runContractFunction: enterLottery } = useWeb3Contract({
+    const {
+        runContractFunction: enterLottery,
+        isLoading,
+        isFetching,
+    } = useWeb3Contract({
         abi: abi,
         contractAddress: lotteryAddress,
         functionName: "enterLottery",
@@ -74,22 +78,28 @@ const LotteryEntrance = () => {
     }
 
     return (
-        <div>
+        <div className="p-5">
             {lotteryAddress ? (
                 <div>
                     <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto"
                         onClick={async () =>
                             await enterLottery({
                                 onSuccess: handleSuccess,
                                 onError: (error) => console.log(error),
                             })
                         }
+                        disabled={isLoading || isFetching}
                     >
-                        Enter Lottery
+                        {isLoading || isFetching ? (
+                            <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                        ) : (
+                            <div>Enter Lottery</div>
+                        )}
                     </button>
-                    <p>EntranceFee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</p>
-                    <p>NumberOfPlayers: {numberOfPlayers}</p>
-                    <p>RecentWinner: {recentWinner}</p>
+                    <div>EntranceFee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
+                    <div>NumberOfPlayers: {numberOfPlayers}</div>
+                    <div>RecentWinner: {recentWinner}</div>
                 </div>
             ) : (
                 <div>No Lottery Addresses Detected</div>
