@@ -24,7 +24,8 @@
 				"NomicFoundation.hardhat-solidity",
 				"WakaTime.vscode-wakatime",
 				"ritwickdey.LiveServer",
-				"dsznajder.es7-react-js-snippets"
+				"dsznajder.es7-react-js-snippets",
+				"csstools.postcss"
 			]
 		}
 	},

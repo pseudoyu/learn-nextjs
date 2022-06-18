@@ -1,13 +1,17 @@
-import ManualHeader from "../components/ManualHeader"
+// import ManualHeader from "../components/ManualHeader"
+import Meta from "../components/Meta"
+import Header from "../components/Header"
+import LotteryEntrance from "../components/LotteryEntrance"
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
-import Meta from "../components/Meta"
 
 export default function Home() {
     return (
         <div className={styles.container}>
             <Meta />
-            <ManualHeader />
+            {/* <ManualHeader /> */}
+            <Header />
+            <LotteryEntrance />
         </div>
     )
 }
